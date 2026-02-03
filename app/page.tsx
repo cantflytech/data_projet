@@ -1,5 +1,7 @@
 "use client"
 
+import { useState } from "react"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DashboardHeader } from "@/components/dashboard/header"
 import { KPICards } from "@/components/dashboard/kpi-cards"
 import { BedCapacityChart } from "@/components/dashboard/bed-capacity-chart"
@@ -10,94 +12,63 @@ import { RecommendationsPanel } from "@/components/dashboard/recommendations-pan
 import { StaffOverview } from "@/components/dashboard/staff-overview"
 import { SimulationPanel } from "@/components/dashboard/simulation-panel"
 import { GeoInsights } from "@/components/dashboard/geo-insights"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Activity, BarChart3, Brain, Settings2 } from "lucide-react"
 
 export default function DashboardPage() {
+  const [activeTab, setActiveTab] = useState("overview")
+
   return (
     <div className="min-h-screen bg-background">
       <DashboardHeader />
       
-      <main className="p-4 md:p-6">
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid w-full max-w-md grid-cols-4">
-            <TabsTrigger value="overview" className="flex items-center gap-2">
-              <Activity className="h-4 w-4" />
-              <span className="hidden sm:inline">Vue d'ensemble</span>
-            </TabsTrigger>
-            <TabsTrigger value="epidemics" className="flex items-center gap-2">
-              <BarChart3 className="h-4 w-4" />
-              <span className="hidden sm:inline">Epidemies</span>
-            </TabsTrigger>
-            <TabsTrigger value="predictions" className="flex items-center gap-2">
-              <Brain className="h-4 w-4" />
-              <span className="hidden sm:inline">Previsions</span>
-            </TabsTrigger>
-            <TabsTrigger value="simulation" className="flex items-center gap-2">
-              <Settings2 className="h-4 w-4" />
-              <span className="hidden sm:inline">Simulation</span>
-            </TabsTrigger>
+      <main className="container mx-auto px-4 py-6">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+          <TabsList className="grid w-full max-w-2xl grid-cols-4 bg-secondary">
+            <TabsTrigger value="overview">Vue d'ensemble</TabsTrigger>
+            <TabsTrigger value="epidemics">Epidemies</TabsTrigger>
+            <TabsTrigger value="predictions">Previsions</TabsTrigger>
+            <TabsTrigger value="simulation">Simulation</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
             <KPICards />
+            
             <div className="grid gap-6 lg:grid-cols-3">
-              <div className="space-y-6 lg:col-span-2">
+              <div className="lg:col-span-2">
                 <BedCapacityChart />
-                <EpidemicChart />
               </div>
-              <div className="space-y-6">
+              <div>
                 <RecommendationsPanel />
               </div>
             </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+            <div className="grid gap-6 lg:grid-cols-2">
               <StockStatus />
               <StaffOverview />
-              <GeoInsights />
             </div>
+
+            <GeoInsights />
           </TabsContent>
 
           <TabsContent value="epidemics" className="space-y-6">
-            <KPICards />
+            <EpidemicChart />
             <div className="grid gap-6 lg:grid-cols-2">
-              <EpidemicChart />
-              <BedCapacityChart />
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <RecommendationsPanel />
               <StockStatus />
-              <StaffOverview />
-              <GeoInsights />
             </div>
           </TabsContent>
 
           <TabsContent value="predictions" className="space-y-6">
-            <KPICards />
-            <div className="grid gap-6 lg:grid-cols-2">
-              <PredictionChart />
-              <RecommendationsPanel />
-            </div>
+            <PredictionChart />
             <div className="grid gap-6 lg:grid-cols-3">
-              <EpidemicChart />
               <div className="lg:col-span-2">
                 <BedCapacityChart />
               </div>
+              <RecommendationsPanel />
             </div>
           </TabsContent>
 
           <TabsContent value="simulation" className="space-y-6">
-            <KPICards />
-            <div className="grid gap-6 lg:grid-cols-2">
-              <SimulationPanel />
-              <RecommendationsPanel />
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <BedCapacityChart />
-              <StockStatus />
-              <div className="space-y-6">
-                <StaffOverview />
-                <GeoInsights />
-              </div>
-            </div>
+            <SimulationPanel />
           </TabsContent>
         </Tabs>
       </main>
