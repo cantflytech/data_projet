@@ -1,5 +1,0 @@
-stocks : https://www.santepubliquefrance.fr/a-propos/nos-principes-fondateurs/etablissement-pharmaceutique/gestion-des-stocks-strategiques-de-produits-de-sante
-
-pics d'activité : https://odisse.santepubliquefrance.fr/ma-region/epidemies/11/
-données geo :https://www.insee.fr/fr/statistiques/1405599?geo=COM-75113
-effectifs hopital : insee
