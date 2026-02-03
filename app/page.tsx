@@ -12,6 +12,8 @@ import { RecommendationsPanel } from "@/components/dashboard/recommendations-pan
 import { StaffOverview } from "@/components/dashboard/staff-overview"
 import { SimulationPanel } from "@/components/dashboard/simulation-panel"
 import { GeoInsights } from "@/components/dashboard/geo-insights"
+import { EpidemicForecastPanel } from "@/components/dashboard/epidemic-forecast-panel"
+import { StaffVacationPanel } from "@/components/dashboard/staff-vacation-panel"
 
 export default function DashboardPage() {
   const [activeTab, setActiveTab] = useState("overview")
@@ -22,10 +24,12 @@ export default function DashboardPage() {
       
       <main className="container mx-auto px-4 py-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
-          <TabsList className="grid w-full max-w-2xl grid-cols-4 bg-secondary">
-            <TabsTrigger value="overview">Vue d'ensemble</TabsTrigger>
-            <TabsTrigger value="epidemics">Epidemies</TabsTrigger>
-            <TabsTrigger value="predictions">Previsions</TabsTrigger>
+          <TabsList className="grid w-full max-w-4xl grid-cols-6 bg-secondary">
+            <TabsTrigger value="overview">Vue d ensemble</TabsTrigger>
+            <TabsTrigger value="epidemics">Maladies</TabsTrigger>
+            <TabsTrigger value="forecast">Previsions</TabsTrigger>
+            <TabsTrigger value="staff">Personnel</TabsTrigger>
+            <TabsTrigger value="predictions">COVID</TabsTrigger>
             <TabsTrigger value="simulation">Simulation</TabsTrigger>
           </TabsList>
 
@@ -54,6 +58,22 @@ export default function DashboardPage() {
             <div className="grid gap-6 lg:grid-cols-2">
               <RecommendationsPanel />
               <StockStatus />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="forecast" className="space-y-6">
+            <EpidemicForecastPanel />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <RecommendationsPanel />
+              <GeoInsights />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="staff" className="space-y-6">
+            <StaffVacationPanel />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <StaffOverview />
+              <RecommendationsPanel />
             </div>
           </TabsContent>
 
