@@ -62,7 +62,7 @@ export function EpidemicChart() {
                 </linearGradient>
               </defs>
               <XAxis 
-                dataKey="semaine" 
+                dataKey="periode" 
                 stroke="hsl(var(--muted-foreground))"
                 fontSize={11}
               />
