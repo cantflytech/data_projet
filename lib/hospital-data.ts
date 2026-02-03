@@ -24,12 +24,12 @@ export const staffData: StaffData[] = [
 export const stockData: StockItem[] = [
   { categorie: "Medicaments", sousType: "Antibiotiques / antiviraux", consoJour: 589, stock30j: 17670, stock60j: 35340, stock90j: 53010, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 42000 },
   { categorie: "Medicaments", sousType: "Antidotes / produits NRBC", consoJour: 44, stock30j: 1320, stock60j: 2640, stock90j: 3960, seuilAlerte: "< 25 j", seuilCritique: "< 15 j", stockActuel: 3200 },
-  { categorie: "Pipettes", sousType: "unites", consoJour: 8000, stock30j: 240000, stock60j: 480000, stock90j: 720000, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 520000 },
-  { categorie: "Portoirs", sousType: "unites", consoJour: 400, stock30j: 12000, stock60j: 24000, stock90j: 36000, seuilAlerte: "< 30 j", seuilCritique: "< 15 j", stockActuel: 28000 },
-  { categorie: "Limes / petits instruments", sousType: "unites", consoJour: 600, stock30j: 18000, stock60j: 36000, stock90j: 54000, seuilAlerte: "< 30 j", seuilCritique: "< 15 j", stockActuel: 45000 },
-  { categorie: "Compresses", sousType: "unites", consoJour: 200000, stock30j: 6000000, stock60j: 12000000, stock90j: 18000000, seuilAlerte: "< 15 j", seuilCritique: "< 7 j", stockActuel: 9500000 },
-  { categorie: "Sets de soins", sousType: "unites", consoJour: 6000, stock30j: 180000, stock60j: 360000, stock90j: 540000, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 280000 },
-  { categorie: "Seringues", sousType: "unites", consoJour: 15000, stock30j: 450000, stock60j: 900000, stock90j: 1350000, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 750000 },
+  { categorie: "Pipettes", sousType: "Pipettes", consoJour: 8000, stock30j: 240000, stock60j: 480000, stock90j: 720000, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 520000 },
+  { categorie: "Portoirs", sousType: "Portoirs", consoJour: 400, stock30j: 12000, stock60j: 24000, stock90j: 36000, seuilAlerte: "< 30 j", seuilCritique: "< 15 j", stockActuel: 28000 },
+  { categorie: "Limes / petits instruments", sousType: "Limes / petits instruments", consoJour: 600, stock30j: 18000, stock60j: 36000, stock90j: 54000, seuilAlerte: "< 30 j", seuilCritique: "< 15 j", stockActuel: 45000 },
+  { categorie: "Compresses", sousType: "Compresses", consoJour: 200000, stock30j: 6000000, stock60j: 12000000, stock90j: 18000000, seuilAlerte: "< 15 j", seuilCritique: "< 7 j", stockActuel: 9500000 },
+  { categorie: "Sets de soins", sousType: "Sets de soins", consoJour: 6000, stock30j: 180000, stock60j: 360000, stock90j: 540000, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 280000 },
+  { categorie: "Seringues", sousType: "Seringues", consoJour: 15000, stock30j: 450000, stock60j: 900000, stock90j: 1350000, seuilAlerte: "< 20 j", seuilCritique: "< 10 j", stockActuel: 750000 },
 ]
 
 export const geoData: GeoData[] = [

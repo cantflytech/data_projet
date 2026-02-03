@@ -1,0 +1,641 @@
+{
+  "generated_at": "2026-02-03T18:46:46.690723",
+  "forecast_weeks": 12,
+  "region": "Île-de-France",
+  "forecasts": {
+    "covid": [
+      {
+        "date": "2026-01-26 00:00:00",
+        "semaine": "S5",
+        "mois_annee": "Jan 2026",
+        "passages_prevu": 85.8131208513425,
+        "hospitalisations_prevu": 138.6991922054844,
+        "intervalle_bas": 60.069184595939745,
+        "intervalle_haut": 111.55705710674526,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-02-02 00:00:00",
+        "semaine": "S6",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 99.72827656132895,
+        "hospitalisations_prevu": 156.08417313385192,
+        "intervalle_bas": 69.80979359293026,
+        "intervalle_haut": 129.64675952972763,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-02-09 00:00:00",
+        "semaine": "S7",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 112.05401199774406,
+        "hospitalisations_prevu": 170.22057563741825,
+        "intervalle_bas": 78.43780839842083,
+        "intervalle_haut": 145.67021559706728,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-02-16 00:00:00",
+        "semaine": "S8",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 120.43196052112724,
+        "hospitalisations_prevu": 177.94286896308,
+        "intervalle_bas": 84.30237236478906,
+        "intervalle_haut": 156.56154867746542,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-02-23 00:00:00",
+        "semaine": "S9",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 123.43163461708828,
+        "hospitalisations_prevu": 177.71855428248608,
+        "intervalle_bas": 86.40214423196178,
+        "intervalle_haut": 160.46112500221477,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-03-02 00:00:00",
+        "semaine": "S10",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 121.0636510607377,
+        "hospitalisations_prevu": 170.14441996512818,
+        "intervalle_bas": 84.74455574251638,
+        "intervalle_haut": 157.382746378959,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-03-09 00:00:00",
+        "semaine": "S11",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 114.90681335053625,
+        "hospitalisations_prevu": 157.87225606631566,
+        "intervalle_bas": 80.43476934537537,
+        "intervalle_haut": 149.37885735569714,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-03-16 00:00:00",
+        "semaine": "S12",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 107.78018589036168,
+        "hospitalisations_prevu": 144.96099003880877,
+        "intervalle_bas": 75.44613012325317,
+        "intervalle_haut": 140.1142416574702,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-03-23 00:00:00",
+        "semaine": "S13",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 103.02254184475828,
+        "hospitalisations_prevu": 135.81204313389708,
+        "intervalle_bas": 72.1157792913308,
+        "intervalle_haut": 133.92930439818576,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-03-30 00:00:00",
+        "semaine": "S14",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 103.5629276801065,
+        "hospitalisations_prevu": 133.96703039738506,
+        "intervalle_bas": 72.49404937607454,
+        "intervalle_haut": 134.63180598413845,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-04-06 00:00:00",
+        "semaine": "S15",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 111.04071422487655,
+        "hospitalisations_prevu": 141.09610706271675,
+        "intervalle_bas": 77.72849995741358,
+        "intervalle_haut": 144.35292849233952,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      },
+      {
+        "date": "2026-04-13 00:00:00",
+        "semaine": "S16",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 125.23640138987791,
+        "hospitalisations_prevu": 156.4648283553075,
+        "intervalle_bas": 87.66548097291454,
+        "intervalle_haut": 162.8073218068413,
+        "niveau_risque": "Faible",
+        "maladie": "covid"
+      }
+    ],
+    "grippe": [
+      {
+        "date": "2026-01-26 00:00:00",
+        "semaine": "S5",
+        "mois_annee": "Jan 2026",
+        "passages_prevu": 4258.611838208443,
+        "hospitalisations_prevu": 3765.781402540216,
+        "intervalle_bas": 2981.02828674591,
+        "intervalle_haut": 5536.1953896709765,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-02-02 00:00:00",
+        "semaine": "S6",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 4950.990667331819,
+        "hospitalisations_prevu": 4356.252942670274,
+        "intervalle_bas": 3465.6934671322733,
+        "intervalle_haut": 6436.287867531365,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-02-09 00:00:00",
+        "semaine": "S7",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 5564.733873885377,
+        "hospitalisations_prevu": 4874.289917161672,
+        "intervalle_bas": 3895.3137117197634,
+        "intervalle_haut": 7234.15403605099,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-02-16 00:00:00",
+        "semaine": "S8",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 5982.573772294779,
+        "hospitalisations_prevu": 5218.952446278925,
+        "intervalle_bas": 4187.801640606345,
+        "intervalle_haut": 7777.345903983212,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-02-23 00:00:00",
+        "semaine": "S9",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 6133.242702213181,
+        "hospitalisations_prevu": 5330.5459598433645,
+        "intervalle_bas": 4293.2698915492265,
+        "intervalle_haut": 7973.215512877135,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-03-02 00:00:00",
+        "semaine": "S10",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 6017.061248541944,
+        "hospitalisations_prevu": 5211.826542174422,
+        "intervalle_bas": 4211.942873979361,
+        "intervalle_haut": 7822.179623104527,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-03-09 00:00:00",
+        "semaine": "S11",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 5712.344448949522,
+        "hospitalisations_prevu": 4932.472674591325,
+        "intervalle_bas": 3998.6411142646652,
+        "intervalle_haut": 7426.047783634379,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-03-16 00:00:00",
+        "semaine": "S12",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 5359.169895665732,
+        "hospitalisations_prevu": 4614.2290979398595,
+        "intervalle_bas": 3751.418926966012,
+        "intervalle_haut": 6966.920864365452,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-03-23 00:00:00",
+        "semaine": "S13",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 5123.583612857644,
+        "hospitalisations_prevu": 4399.681485343306,
+        "intervalle_bas": 3586.5085290003503,
+        "intervalle_haut": 6660.658696714937,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-03-30 00:00:00",
+        "semaine": "S14",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 5151.36860345605,
+        "hospitalisations_prevu": 4412.654648493504,
+        "intervalle_bas": 3605.9580224192346,
+        "intervalle_haut": 6696.779184492865,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-04-06 00:00:00",
+        "semaine": "S15",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 5524.229858357227,
+        "hospitalisations_prevu": 4721.2196240290195,
+        "intervalle_bas": 3866.960900850059,
+        "intervalle_haut": 7181.4988158643955,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      },
+      {
+        "date": "2026-04-13 00:00:00",
+        "semaine": "S16",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 6231.4094621103795,
+        "hospitalisations_prevu": 5314.243861170524,
+        "intervalle_bas": 4361.986623477265,
+        "intervalle_haut": 8100.832300743494,
+        "niveau_risque": "Eleve",
+        "maladie": "grippe"
+      }
+    ],
+    "bronchiolite": [
+      {
+        "date": "2026-01-26 00:00:00",
+        "semaine": "S5",
+        "mois_annee": "Jan 2026",
+        "passages_prevu": 15707.635248334374,
+        "hospitalisations_prevu": 30302.10688826406,
+        "intervalle_bas": 10995.34467383406,
+        "intervalle_haut": 20419.925822834688,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-02-02 00:00:00",
+        "semaine": "S6",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 15285.280538955627,
+        "hospitalisations_prevu": 30197.515731812346,
+        "intervalle_bas": 10699.696377268938,
+        "intervalle_haut": 19870.864700642316,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-02-09 00:00:00",
+        "semaine": "S7",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 14176.756681972893,
+        "hospitalisations_prevu": 28863.739482501747,
+        "intervalle_bas": 9923.729677381025,
+        "intervalle_haut": 18429.783686564762,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-02-16 00:00:00",
+        "semaine": "S8",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 12326.229895125,
+        "hospitalisations_prevu": 26103.176772279374,
+        "intervalle_bas": 8628.360926587498,
+        "intervalle_haut": 16024.0988636625,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-02-23 00:00:00",
+        "semaine": "S9",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 9925.23588392392,
+        "hospitalisations_prevu": 22176.893206053814,
+        "intervalle_bas": 6947.665118746744,
+        "intervalle_haut": 12902.806649101098,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-03-02 00:00:00",
+        "semaine": "S10",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 7312.807602106876,
+        "hospitalisations_prevu": 17658.308350699845,
+        "intervalle_bas": 5118.965321474813,
+        "intervalle_haut": 9506.64988273894,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-03-09 00:00:00",
+        "semaine": "S11",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 4836.081243540624,
+        "hospitalisations_prevu": 13203.187732201564,
+        "intervalle_bas": 3385.2568704784367,
+        "intervalle_haut": 6286.905616602811,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-03-16 00:00:00",
+        "semaine": "S12",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 2721.7400184675,
+        "hospitalisations_prevu": 9318.03108557203,
+        "intervalle_bas": 1905.2180129272497,
+        "intervalle_haut": 3538.26202400775,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-03-23 00:00:00",
+        "semaine": "S13",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 1002.2655293927739,
+        "hospitalisations_prevu": 6203.895373870177,
+        "intervalle_bas": 701.5858705749417,
+        "intervalle_haut": 1302.9451882106061,
+        "niveau_risque": "Eleve",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-03-30 00:00:00",
+        "semaine": "S14",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 0.0,
+        "hospitalisations_prevu": 3722.982523336253,
+        "intervalle_bas": 0.0,
+        "intervalle_haut": 0.0,
+        "niveau_risque": "Faible",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-04-06 00:00:00",
+        "semaine": "S15",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 0.0,
+        "hospitalisations_prevu": 1491.4622129431095,
+        "intervalle_bas": 0.0,
+        "intervalle_haut": 0.0,
+        "niveau_risque": "Faible",
+        "maladie": "bronchiolite"
+      },
+      {
+        "date": "2026-04-13 00:00:00",
+        "semaine": "S16",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 0.0,
+        "hospitalisations_prevu": 0.0,
+        "intervalle_bas": 0.0,
+        "intervalle_haut": 0.0,
+        "niveau_risque": "Faible",
+        "maladie": "bronchiolite"
+      }
+    ],
+    "ira": [
+      {
+        "date": "2026-01-26 00:00:00",
+        "semaine": "S5",
+        "mois_annee": "Jan 2026",
+        "passages_prevu": 8513.387291252813,
+        "hospitalisations_prevu": 11988.671334981249,
+        "intervalle_bas": 5959.371103876969,
+        "intervalle_haut": 11067.403478628657,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-02-02 00:00:00",
+        "semaine": "S6",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 9035.267046380439,
+        "hospitalisations_prevu": 12571.317831526438,
+        "intervalle_bas": 6324.686932466307,
+        "intervalle_haut": 11745.84716029457,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-02-09 00:00:00",
+        "semaine": "S7",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 9285.180238739824,
+        "hospitalisations_prevu": 12750.709790560039,
+        "intervalle_bas": 6499.626167117876,
+        "intervalle_haut": 12070.734310361771,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-02-16 00:00:00",
+        "semaine": "S8",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 9137.8353800565,
+        "hospitalisations_prevu": 12369.683517404248,
+        "intervalle_bas": 6396.48476603955,
+        "intervalle_haut": 11879.18599407345,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-02-23 00:00:00",
+        "semaine": "S9",
+        "mois_annee": "Feb 2026",
+        "passages_prevu": 8582.41125293073,
+        "hospitalisations_prevu": 11436.249459395616,
+        "intervalle_bas": 6007.68787705151,
+        "intervalle_haut": 11157.134628809948,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-03-02 00:00:00",
+        "semaine": "S10",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 7717.431150389813,
+        "hospitalisations_prevu": 10106.435283714687,
+        "intervalle_bas": 5402.201805272869,
+        "intervalle_haut": 10032.660495506758,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-03-09 00:00:00",
+        "semaine": "S11",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 6716.338342174688,
+        "hospitalisations_prevu": 8627.467860692499,
+        "intervalle_bas": 4701.436839522281,
+        "intervalle_haut": 8731.239844827094,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-03-16 00:00:00",
+        "semaine": "S12",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 5775.1471655955,
+        "hospitalisations_prevu": 7260.5405534799365,
+        "intervalle_bas": 4042.60301591685,
+        "intervalle_haut": 7507.691315274151,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-03-23 00:00:00",
+        "semaine": "S13",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 5057.770770318083,
+        "hospitalisations_prevu": 6206.804608125723,
+        "intervalle_bas": 3540.439539222658,
+        "intervalle_haut": 6575.102001413508,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-03-30 00:00:00",
+        "semaine": "S14",
+        "mois_annee": "Mar 2026",
+        "passages_prevu": 4654.2510941085,
+        "hospitalisations_prevu": 5557.492898838499,
+        "intervalle_bas": 3257.97576587595,
+        "intervalle_haut": 6050.52642234105,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-04-06 00:00:00",
+        "semaine": "S15",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 4562.507123408427,
+        "hospitalisations_prevu": 5280.462623097644,
+        "intervalle_bas": 3193.754986385899,
+        "intervalle_haut": 5931.259260430956,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      },
+      {
+        "date": "2026-04-13 00:00:00",
+        "semaine": "S16",
+        "mois_annee": "Apr 2026",
+        "passages_prevu": 4696.917796148624,
+        "hospitalisations_prevu": 5243.818468906686,
+        "intervalle_bas": 3287.8424573040365,
+        "intervalle_haut": 6105.993134993211,
+        "niveau_risque": "Eleve",
+        "maladie": "ira"
+      }
+    ]
+  },
+  "epidemic_history": {
+    "covid": [
+      {
+        "debut": "2021-11-29",
+        "fin": "2022-02-21",
+        "duree_semaines": 12,
+        "pic_passages": 5982.93518887
+      },
+      {
+        "debut": "2022-03-14",
+        "fin": "2022-04-25",
+        "duree_semaines": 6,
+        "pic_passages": 2167.6290077520002
+      },
+      {
+        "debut": "2022-06-20",
+        "fin": "2022-08-01",
+        "duree_semaines": 6,
+        "pic_passages": 3269.8347637876923
+      },
+      {
+        "debut": "2022-10-03",
+        "fin": "2022-10-17",
+        "duree_semaines": 2,
+        "pic_passages": 1424.6092789916154
+      },
+      {
+        "debut": "2023-12-11",
+        "fin": "2023-12-18",
+        "duree_semaines": 1,
+        "pic_passages": 1288.600194217369
+      }
+    ],
+    "bronchiolite": [
+      {
+        "debut": "2021-09-27",
+        "fin": "2022-01-03",
+        "duree_semaines": 14,
+        "pic_passages": 29676.045811230768
+      },
+      {
+        "debut": "2022-09-26",
+        "fin": "2023-01-16",
+        "duree_semaines": 16,
+        "pic_passages": 38305.87789930769
+      },
+      {
+        "debut": "2023-10-02",
+        "fin": "2024-01-08",
+        "duree_semaines": 14,
+        "pic_passages": 35833.528924692306
+      },
+      {
+        "debut": "2024-10-28",
+        "fin": "2024-12-30",
+        "duree_semaines": 9,
+        "pic_passages": 26726.821234846157
+      },
+      {
+        "debut": "2025-10-20",
+        "fin": "2026-01-05",
+        "duree_semaines": 11,
+        "pic_passages": 24054.515345615386
+      }
+    ],
+    "ira": [
+      {
+        "debut": "2022-03-28",
+        "fin": "2022-04-18",
+        "duree_semaines": 3,
+        "pic_passages": 7647.131751635385
+      },
+      {
+        "debut": "2022-10-17",
+        "fin": "2023-01-09",
+        "duree_semaines": 12,
+        "pic_passages": 15462.512487183078
+      },
+      {
+        "debut": "2023-10-30",
+        "fin": "2024-02-19",
+        "duree_semaines": 16,
+        "pic_passages": 9262.054658226152
+      },
+      {
+        "debut": "2024-12-02",
+        "fin": "2025-02-17",
+        "duree_semaines": 11,
+        "pic_passages": 12760.825764813846
+      },
+      {
+        "debut": "2025-12-01",
+        "fin": "2026-01-19",
+        "duree_semaines": 7,
+        "pic_passages": 11263.199192647691
+      }
+    ]
+  }
+}

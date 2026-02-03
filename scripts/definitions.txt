@@ -1,0 +1,93 @@
+MÉTHODE DE FORECAST SIMULÉ – ACTIVITÉ ÉPIDÉMIQUE HOSPITALIÈRE
+
+La méthode de prévision mise en œuvre repose sur une approche volontairement simple, explicable et robuste, adaptée à un contexte pédagogique et décisionnel, et non à une modélisation épidémiologique avancée.
+
+Elle vise à produire des tendances plausibles à court terme (12 semaines), exploitables dans un dashboard de pilotage hospitalier.
+
+SOURCE ET PRÉPARATION DES DONNÉES
+
+Les données utilisées proviennent de fichiers CSV publics agrégés (Santé publique France), portant sur plusieurs pathologies saisonnières :
+
+COVID-19
+
+Grippe
+
+Bronchiolite
+
+Infections respiratoires aiguës (IRA)
+
+Les données sont filtrées à l’échelle régionale (Île-de-France), puis agrégées par date afin d’obtenir des indicateurs moyens hebdomadaires :
+
+taux de passages aux urgences
+
+taux d’hospitalisations
+
+taux d’actes SOS médecins
+
+Aucune donnée individuelle n’est utilisée.
+
+LOGIQUE GÉNÉRALE DE PRÉVISION
+
+La prévision repose sur une moyenne mobile glissante, enrichie de deux composantes simples :
+
+une tendance récente, calculée à partir de l’évolution des dernières semaines
+
+une variabilité saisonnière simulée, introduite via une fonction sinusoïdale
+
+Il ne s’agit pas d’un modèle prédictif statistique ou IA, mais d’un forecast déterministe simulé, destiné à illustrer des dynamiques plausibles.
+
+CALCUL DE LA PRÉVISION
+
+Pour chaque indicateur (passages, hospitalisations) :
+
+Une fenêtre glissante de 8 semaines est utilisée
+
+La moyenne des valeurs récentes constitue la base du forecast
+
+Une tendance linéaire est estimée à partir de l’évolution des valeurs récentes
+
+Un facteur saisonnier périodique est appliqué pour refléter les effets cycliques
+
+Les valeurs négatives sont exclues par construction
+
+La projection est réalisée sur un horizon fixe de 12 semaines.
+
+INTERVALLES ET NIVEAU DE RISQUE
+
+Afin d’intégrer l’incertitude :
+
+Un intervalle bas est défini à −30 % de la valeur prévue
+
+Un intervalle haut est défini à +30 % de la valeur prévue
+
+Un niveau de risque est ensuite attribué selon des seuils simples :
+
+Faible
+
+Moyen
+
+Élevé
+
+Ces seuils servent à la lecture métier et au pilotage, pas à une alerte sanitaire officielle.
+
+HISTORIQUE DES PÉRIODES ÉPIDÉMIQUES
+
+En parallèle du forecast, le script identifie des périodes épidémiques historiques :
+
+Le seuil épidémique est défini comme le 75ᵉ percentile des taux de passages
+
+Les périodes consécutives au-dessus de ce seuil sont détectées
+
+Pour chaque période : date de début, date de fin, durée et pic observé
+
+Les cinq périodes les plus récentes sont conservées à des fins de contextualisation.
+
+SORTIES PRODUITES
+
+Le script génère :
+
+un fichier CSV consolidé de prévisions (toutes pathologies)
+
+un fichier JSON structuré pour intégration frontend / dashboard
+
+des métadonnées de génération (date, région, horizon)

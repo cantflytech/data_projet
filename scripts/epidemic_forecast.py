@@ -32,6 +32,10 @@ def load_epidemic_data(disease_type):
         df.columns = ['date', 'semaine', 'dept_code', 'dept', 'classe_age', 
                      'taux_passages', 'taux_hospit', 'taux_sos', 'region_code', 'region']
         df['date'] = pd.to_datetime(df['date'])
+        # S'assurer que les colonnes textuelles sont bien interprétées comme des chaînes
+        for text_col in ['dept', 'classe_age', 'region']:
+            if text_col in df.columns:
+                df[text_col] = df[text_col].astype('string').fillna('')
         return df
     except Exception as e:
         print(f"Erreur chargement {disease_type}: {e}")
