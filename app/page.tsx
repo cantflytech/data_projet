@@ -1,40 +1,106 @@
-export default function Home() {
+"use client"
+
+import { DashboardHeader } from "@/components/dashboard/header"
+import { KPICards } from "@/components/dashboard/kpi-cards"
+import { BedCapacityChart } from "@/components/dashboard/bed-capacity-chart"
+import { EpidemicChart } from "@/components/dashboard/epidemic-chart"
+import { PredictionChart } from "@/components/dashboard/prediction-chart"
+import { StockStatus } from "@/components/dashboard/stock-status"
+import { RecommendationsPanel } from "@/components/dashboard/recommendations-panel"
+import { StaffOverview } from "@/components/dashboard/staff-overview"
+import { SimulationPanel } from "@/components/dashboard/simulation-panel"
+import { GeoInsights } from "@/components/dashboard/geo-insights"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Activity, BarChart3, Brain, Settings2 } from "lucide-react"
+
+export default function DashboardPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-background">
-      <div className="max-w-4xl w-full space-y-8 text-center">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground">
-          Data Project
-        </h1>
-        <p className="text-lg text-muted-foreground">
-          Healthcare data analysis and activity forecasting
-        </p>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mt-8">
-          <div className="p-6 border rounded-lg bg-card">
-            <h2 className="text-xl font-semibold mb-2">Geographic Data</h2>
-            <p className="text-sm text-muted-foreground">
-              Regional healthcare data for the 13th district
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg bg-card">
-            <h2 className="text-xl font-semibold mb-2">Internal Data</h2>
-            <p className="text-sm text-muted-foreground">
-              Bed capacity, staffing figures, and stock levels
-            </p>
-          </div>
-          <div className="p-6 border rounded-lg bg-card">
-            <h2 className="text-xl font-semibold mb-2">Activity Peaks</h2>
-            <p className="text-sm text-muted-foreground">
-              Emergency visits for bronchiolitis, COVID-19, flu, and respiratory infections
-            </p>
-          </div>
-        </div>
-        <div className="mt-8 p-6 border rounded-lg bg-card">
-          <h2 className="text-xl font-semibold mb-2">Predictions</h2>
-          <p className="text-sm text-muted-foreground">
-            12-week COVID forecasting and activity analysis
-          </p>
-        </div>
-      </div>
-    </main>
+    <div className="min-h-screen bg-background">
+      <DashboardHeader />
+      
+      <main className="p-4 md:p-6">
+        <Tabs defaultValue="overview" className="space-y-6">
+          <TabsList className="grid w-full max-w-md grid-cols-4">
+            <TabsTrigger value="overview" className="flex items-center gap-2">
+              <Activity className="h-4 w-4" />
+              <span className="hidden sm:inline">Vue d'ensemble</span>
+            </TabsTrigger>
+            <TabsTrigger value="epidemics" className="flex items-center gap-2">
+              <BarChart3 className="h-4 w-4" />
+              <span className="hidden sm:inline">Epidemies</span>
+            </TabsTrigger>
+            <TabsTrigger value="predictions" className="flex items-center gap-2">
+              <Brain className="h-4 w-4" />
+              <span className="hidden sm:inline">Previsions</span>
+            </TabsTrigger>
+            <TabsTrigger value="simulation" className="flex items-center gap-2">
+              <Settings2 className="h-4 w-4" />
+              <span className="hidden sm:inline">Simulation</span>
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="overview" className="space-y-6">
+            <KPICards />
+            <div className="grid gap-6 lg:grid-cols-3">
+              <div className="space-y-6 lg:col-span-2">
+                <BedCapacityChart />
+                <EpidemicChart />
+              </div>
+              <div className="space-y-6">
+                <RecommendationsPanel />
+              </div>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <StockStatus />
+              <StaffOverview />
+              <GeoInsights />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="epidemics" className="space-y-6">
+            <KPICards />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <EpidemicChart />
+              <BedCapacityChart />
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <StockStatus />
+              <StaffOverview />
+              <GeoInsights />
+            </div>
+          </TabsContent>
+
+          <TabsContent value="predictions" className="space-y-6">
+            <KPICards />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <PredictionChart />
+              <RecommendationsPanel />
+            </div>
+            <div className="grid gap-6 lg:grid-cols-3">
+              <EpidemicChart />
+              <div className="lg:col-span-2">
+                <BedCapacityChart />
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="simulation" className="space-y-6">
+            <KPICards />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <SimulationPanel />
+              <RecommendationsPanel />
+            </div>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <BedCapacityChart />
+              <StockStatus />
+              <div className="space-y-6">
+                <StaffOverview />
+                <GeoInsights />
+              </div>
+            </div>
+          </TabsContent>
+        </Tabs>
+      </main>
+    </div>
   )
 }
