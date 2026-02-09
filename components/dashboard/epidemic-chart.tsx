@@ -1,10 +1,10 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState, useEffect, useCallback, useMemo } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, Area, AreaChart, CartesianGrid } from "recharts"
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, CartesianGrid } from "recharts"
 import { Activity, Filter, RefreshCw, TrendingUp, Users, Calendar } from "lucide-react"
 
 type EpidemicType = 'covid' | 'grippe' | 'bronchiolite' | 'ira'
@@ -41,6 +41,23 @@ const epidemicColors: Record<EpidemicType, string> = {
   grippe: '#f59e0b',
   bronchiolite: '#8b5cf6',
   ira: '#0ea5e9',
+}
+
+const MONTH_ORDER = ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Juil", "Aout", "Sep", "Oct", "Nov", "Dec"] as const
+
+const MONTH_FULL_NAMES: Record<string, string> = {
+  Jan: "Janvier",
+  Fev: "Février",
+  Mar: "Mars",
+  Avr: "Avril",
+  Mai: "Mai",
+  Juin: "Juin",
+  Juil: "Juillet",
+  Aout: "Août",
+  Sep: "Septembre",
+  Oct: "Octobre",
+  Nov: "Novembre",
+  Dec: "Décembre",
 }
 
 // Fallback data when API is not available
@@ -121,12 +138,104 @@ export function EpidemicChart() {
   useEffect(() => {
     fetchData()
   }, [fetchData])
+  const { overlayData, years } = useMemo(() => {
+    if (!data || data.length === 0) {
+      return { overlayData: [] as Array<Record<string, number | string | null>>, years: [] as string[] }
+    }
 
-  const stats = {
-    maxPassages: Math.max(...data.map(d => d.passages)),
-    maxHospit: Math.max(...data.map(d => d.hospitalisations)),
-    avgPassages: Math.round(data.reduce((acc, d) => acc + d.passages, 0) / data.length),
-  }
+    const yearBuckets = new Map<string, Map<string, number>>()
+    const monthsSet = new Set<string>()
+
+    data.forEach((entry) => {
+      const [monthLabel, yearLabel] = entry.periode.split(" ")
+      if (!monthLabel || !yearLabel) return
+
+      monthsSet.add(monthLabel)
+
+      if (!yearBuckets.has(yearLabel)) {
+        yearBuckets.set(yearLabel, new Map())
+      }
+
+      yearBuckets.get(yearLabel)!.set(monthLabel, entry.hospitalisations)
+    })
+
+    const sortedYears = Array.from(yearBuckets.keys()).sort((a, b) => {
+      const numA = Number(a)
+      const numB = Number(b)
+
+      if (!Number.isNaN(numA) && !Number.isNaN(numB)) {
+        return numB - numA
+      }
+
+      return b.localeCompare(a)
+    })
+
+    const sortedMonths = Array.from(monthsSet)
+      .map((month) => ({
+        month,
+        index: MONTH_ORDER.indexOf(month as typeof MONTH_ORDER[number]),
+      }))
+      .sort((a, b) => {
+        const aIndex = a.index === -1 ? 99 : a.index
+        const bIndex = b.index === -1 ? 99 : b.index
+
+        if (aIndex === bIndex) {
+          return a.month.localeCompare(b.month)
+        }
+
+        return aIndex - bIndex
+      })
+      .map((entry) => entry.month)
+
+    const composed = sortedMonths.map((monthLabel) => {
+      const row: Record<string, number | string | null> = { month: monthLabel }
+
+      sortedYears.forEach((yearLabel) => {
+        const value = yearBuckets.get(yearLabel)?.get(monthLabel)
+        row[yearLabel] = typeof value === "number" && !Number.isNaN(value) ? Math.round(value) : null
+      })
+
+      return row
+    })
+
+    return {
+      overlayData: composed,
+      years: sortedYears,
+    }
+  }, [data])
+
+  const hospitalValues = useMemo(
+    () =>
+      data
+        .map((entry) => entry.hospitalisations)
+        .filter((value): value is number => typeof value === "number" && !Number.isNaN(value)),
+    [data]
+  )
+
+  const maxHospit = hospitalValues.length ? Math.max(...hospitalValues) : 0
+  const avgHospit = hospitalValues.length
+    ? Math.round(hospitalValues.reduce((acc, value) => acc + value, 0) / hospitalValues.length)
+    : 0
+
+  const yearBadgeLabel = years.length
+    ? [...years].sort((a, b) => a.localeCompare(b)).join(" · ")
+    : selectedYear || "N/A"
+
+  const colorPalette = [
+    epidemicColors[selectedEpidemic],
+    "#0ea5e9",
+    "#f97316",
+    "#22c55e",
+    "#a855f7",
+    "#facc15",
+    "#ef4444",
+    "#14b8a6",
+  ]
+
+  const lineColors = years.reduce<Record<string, string>>((acc, year, index) => {
+    acc[year] = colorPalette[index % colorPalette.length]
+    return acc
+  }, {})
 
   return (
     <Card className="bg-card border-border shadow-sm">
@@ -243,15 +352,15 @@ export function EpidemicChart() {
           <div className="flex flex-wrap gap-2">
             <Badge variant="outline" className="flex items-center gap-1 bg-background">
               <TrendingUp className="h-3 w-3" />
-              <span>Pic: {stats.maxPassages.toLocaleString()}/100k</span>
+              <span>Pic hospit: {maxHospit.toLocaleString("fr-FR")}/100k</span>
             </Badge>
             <Badge variant="outline" className="flex items-center gap-1 bg-background">
               <Users className="h-3 w-3" />
-              <span>Hospit max: {stats.maxHospit.toLocaleString()}/100k</span>
+              <span>Moyenne: {avgHospit.toLocaleString("fr-FR")}/100k</span>
             </Badge>
             <Badge variant="outline" className="flex items-center gap-1 bg-background">
               <Calendar className="h-3 w-3" />
-              <span>Moy: {stats.avgPassages.toLocaleString()}/100k</span>
+              <span>Années: {yearBadgeLabel}</span>
             </Badge>
             {totalRecords > 0 && (
               <Badge variant="secondary" className="text-xs">
@@ -268,33 +377,28 @@ export function EpidemicChart() {
             <div className="flex h-full items-center justify-center">
               <RefreshCw className="h-8 w-8 animate-spin text-muted-foreground" />
             </div>
+          ) : overlayData.length === 0 ? (
+            <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
+              Aucune donnée hospitalière à afficher pour cette sélection.
+            </div>
           ) : (
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
-                <defs>
-                  <linearGradient id={`colorPassages-${selectedEpidemic}`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={epidemicColors[selectedEpidemic]} stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor={epidemicColors[selectedEpidemic]} stopOpacity={0.05}/>
-                  </linearGradient>
-                  <linearGradient id="colorHosp" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#0ea5e9" stopOpacity={0.4}/>
-                    <stop offset="95%" stopColor="#0ea5e9" stopOpacity={0.05}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
-                <XAxis 
-                  dataKey="periode" 
+              <LineChart data={overlayData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.4} />
+                <XAxis
+                  dataKey="month"
                   stroke="hsl(var(--muted-foreground))"
                   fontSize={11}
                   tickLine={false}
                   axisLine={false}
+                  tickMargin={8}
                 />
-                <YAxis 
+                <YAxis
                   stroke="hsl(var(--muted-foreground))"
                   fontSize={11}
                   tickLine={false}
                   axisLine={false}
-                  tickFormatter={(value) => value >= 1000 ? `${(value/1000).toFixed(0)}k` : value}
+                  tickFormatter={(value: number) => (value >= 1000 ? `${Math.round(value / 1000)}k` : value)}
                 />
                 <Tooltip
                   contentStyle={{
@@ -304,46 +408,32 @@ export function EpidemicChart() {
                     color: 'hsl(var(--foreground))',
                     boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
                   }}
-                  formatter={(value: number, name: string) => {
-                    const labels: Record<string, string> = {
-                      passages: 'Passages urgences',
-                      hospitalisations: 'Hospitalisations',
-                      sosMedecins: 'Actes SOS Medecins'
+                  formatter={(value: number | string | null, name: string) => {
+                    const numericValue = typeof value === 'number' ? value : Number(value)
+                    if (!Number.isFinite(numericValue)) {
+                      return ['-', `Année ${name}`]
                     }
-                    return [value.toLocaleString() + ' /100k hab', labels[name] || name]
+                    return [`${numericValue.toLocaleString('fr-FR')} /100k hab`, `Année ${name}`]
                   }}
+                  labelFormatter={(label) => MONTH_FULL_NAMES[label as string] || label}
                   labelStyle={{ fontWeight: 600 }}
                 />
-                <Legend 
-                  formatter={(value) => {
-                    const labels: Record<string, string> = {
-                      passages: 'Passages urgences',
-                      hospitalisations: 'Hospitalisations',
-                    }
-                    return <span className="text-xs">{labels[value] || value}</span>
-                  }}
+                <Legend
+                  formatter={(value) => <span className="text-xs">Année {value}</span>}
                 />
-                <Area 
-                  type="monotone" 
-                  dataKey="passages" 
-                  stroke={epidemicColors[selectedEpidemic]} 
-                  fillOpacity={1}
-                  fill={`url(#colorPassages-${selectedEpidemic})`}
-                  strokeWidth={2}
-                  dot={{ r: 3, fill: epidemicColors[selectedEpidemic] }}
-                  activeDot={{ r: 5 }}
-                />
-                <Area 
-                  type="monotone" 
-                  dataKey="hospitalisations" 
-                  stroke="#0ea5e9" 
-                  fillOpacity={1}
-                  fill="url(#colorHosp)"
-                  strokeWidth={2}
-                  dot={{ r: 3, fill: '#0ea5e9' }}
-                  activeDot={{ r: 5 }}
-                />
-              </AreaChart>
+                {years.map((year) => (
+                  <Line
+                    key={year}
+                    type="monotone"
+                    dataKey={year}
+                    stroke={lineColors[year] ?? epidemicColors[selectedEpidemic]}
+                    strokeWidth={3}
+                    dot={{ r: 3, fill: lineColors[year] ?? epidemicColors[selectedEpidemic] }}
+                    activeDot={{ r: 6 }}
+                    connectNulls
+                  />
+                ))}
+              </LineChart>
             </ResponsiveContainer>
           )}
         </div>

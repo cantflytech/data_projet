@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { AlertTriangle, TrendingUp, Calendar, Shield, RefreshCw, Play, FileCode } from "lucide-react"
 import { AreaChart, Area, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, ReferenceLine } from "recharts"
+import test from "node:test"
 
 interface ForecastData {
   date: string
@@ -179,27 +180,31 @@ export function EpidemicForecastPanel() {
                   </defs>
                   <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
                   <XAxis 
-                    dataKey="mois_annee" 
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={10}
-                    tickLine={false}
-                    axisLine={false}
+                  dataKey="semaine"
+                  stroke="hsl(var(--muted-foreground))"
+                  fontSize={10}
+                  tickLine={false}
+                  axisLine={false}
+                  tickFormatter={(value, index) => {
+                    const item = currentForecast[index];
+                    return item ? `${item.semaine} ${item.mois_annee}` : value;
+                  }}
                   />
                   <YAxis 
-                    stroke="hsl(var(--muted-foreground))"
-                    fontSize={11}
-                    tickLine={false}
-                    axisLine={false}
-                    tickFormatter={(value) => value >= 1000 ? `${(value/1000).toFixed(0)}k` : value}
+                  stroke="hsl(var(--muted-foreground))"
+                  fontSize={11}
+                  tickLine={false}
+                  axisLine={false}
+                  tickFormatter={(value) => value >= 1000 ? `${(value/1000).toFixed(0)}k` : value}
                   />
                   <Tooltip
-                    contentStyle={{
-                      backgroundColor: 'hsl(var(--card))',
-                      border: '1px solid hsl(var(--border))',
-                      borderRadius: '8px',
-                      boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
-                    }}
-                    formatter={(value: number, name: string) => {
+                  contentStyle={{
+                    backgroundColor: 'hsl(var(--card))',
+                    border: '1px solid hsl(var(--border))',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 6px -1px rgba(0,0,0,0.1)',
+                  }}
+                  formatter={(value: number, name: string) => {
                       const labels: Record<string, string> = {
                         passages_prevu: 'Passages prevus',
                         hospitalisations_prevu: 'Hospitalisations',

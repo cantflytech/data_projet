@@ -1,0 +1,18 @@
+Stack technologique :
+Frontend :
+- Next.js 16 (App Router) + React 19 en mode client pour les visualisations.
+- Tailwind CSS 3.4, tailwind-merge, design system shadcn/ui (bouton, carte, dropdown, slider, tabs).
+- Recharts pour les graphes, lucide-react pour les icônes.
+- Gestion des dépendances avec pnpm, scripts package.json (dev, build, lint).
+Backend léger :
+- Routes API Next (`app/api/*`) exposant les jeux de données (épidémies, forecast).
+- Fonctions server components pour traiter les requêtes.
+Data & outils :
+- Python 3.12 (venv), pandas, numpy pour nettoyage/agrégations (`analyse/clean_open_phmev.py`, `scripts/epidemic_forecast.py`).
+- CSV de sortie stockés dans `data/processed/` et `prediction_data/`.
+Tests & lint :
+- ESLint (non encore configuré complètement), TypeScript strict pour les components.
+- Vérifications manuelles via `pnpm exec tsc --noEmit`.
+Infra & déploiement (à prévoir) :
+- Hosting Next (Vercel / Azure) avec build pnpm.
+- Tâches planifiées pour rafraîchir les données (GitHub Actions ou cron externe).

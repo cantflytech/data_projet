@@ -1,0 +1,5 @@
+Projet : tableau de bord hospitalier pour l'hôpital Pitié-Salpêtrière.
+Objectif : fournir une vision consolidée des capacités hospitalières (lits, stocks, personnel) et de l'activité épidémique.
+Fonctions principales : suivi des indicateurs temps réel, prévisions sur 12 semaines, recommandations opératoires, exploration des tendances géographiques.
+Public cible : direction hospitalière, cellule de crise, managers de pôles.
+Valeur : anticiper les pics d'activité, ajuster les ressources, soutenir la décision stratégique.

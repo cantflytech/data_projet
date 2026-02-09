@@ -29,7 +29,7 @@ export default function DashboardPage() {
             <TabsTrigger value="epidemics">Maladies</TabsTrigger>
             <TabsTrigger value="forecast">Previsions</TabsTrigger>
             <TabsTrigger value="staff">Personnel</TabsTrigger>
-            <TabsTrigger value="predictions">COVID</TabsTrigger>
+             {/*<TabsTrigger value="predictions">COVID</TabsTrigger>*/}
             <TabsTrigger value="simulation">Simulation</TabsTrigger>
           </TabsList>
 

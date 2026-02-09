@@ -1,0 +1,11 @@
+Sources de données utilisées :
+- Dossiers CSV `Final_data/pics_activité/` (COVID-19, grippe, bronchiolite, IRA) issus de Santé Publique France.
+- Données internes `Final_data/interne/` : capacités en lits, effectifs, stocks médicamenteux.
+- Données géographiques `Final_data/geographique/` pour contextualiser les indicateurs territoriaux.
+Nettoyage et enrichissement :
+- Scripts Python (pandas) pour uniformiser les colonnes, convertir les dates, ajouter saisons/semaine ISO.
+- Agrégations hebdomadaires et calculs de moyennes régionales (Île-de-France).
+Fichiers dérivés :
+- `data/processed/medications_by_atc*.csv` pour la pharmacie.
+- `prediction_data/epidemic_forecast_*.{csv,json}` pour les projections.
+Limites : actualisation manuelle des CSV, absence de pipeline d’ingestion automatisé, granularité limitée sur les âges départements.

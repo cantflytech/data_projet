@@ -1,0 +1,15 @@
+Vision produit de l'application :
+- Tableau de bord single-page responsive avec navigation par onglets (activité, capacités, recommandations, simulations).
+- Hero/KPI cards résumant lits disponibles, tensions, stocks critiques, effectifs.
+- Graphiques Recharts pour :
+  * tendances épidémiques (historique vs prévisions),
+  * charge par service (bar chart + seuils de tension),
+  * répartition personnel (pie chart),
+  * stocks critiques (liste + badges).
+- Panneau recommandations : guidelines dynamiques suivant le niveau de risque.
+- Module de simulation : curseurs (slider) pour ajuster hypothèses d’afflux patients, exposition des impacts chiffrés.
+- Section géo : indicateurs clés par département, repères cartographiques simplifiés.
+Expérience utilisateur :
+- Design sombre modern, composant shadcn (cards, dropdowns, tabs) pour cohérence.
+- Interactions rapides, chargement de données via API internes Next.
+- Traduction intégrale en français.

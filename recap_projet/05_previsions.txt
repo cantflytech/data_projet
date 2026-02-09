@@ -1,0 +1,15 @@
+Approche forecasting actuelle :
+- Script `scripts/epidemic_forecast.py` générant des projections sur 12 semaines pour COVID, grippe, bronchiolite, IRA.
+- Méthode : moyenne mobile simple (fenêtre 8 semaines) + composante tendance + facteur saisonnier sinusoidal.
+- Sorties :
+  * `epidemic_forecast_combined.csv` (table structurée)
+  * `epidemic_forecast.json` (alimente le dashboard)
+- Indicateurs fournis : passages aux urgences, hospitalisations, intervalles de confiance (70%-130%), niveau de risque (faible/moyen/élevé).
+Limites :
+- Modèle linéaire simpliste, ignore ruptures et indicateurs externes (météo, vaccins).
+- Filtrage sur Île-de-France, fallback national si données manquantes.
+- Pas de backtesting ni metrics d’erreur historisées.
+Pistes d’amélioration :
+- Expérimenter Prophet/ARIMA ou modèles LSTM multivariés.
+- Introduire features exogènes (saisons, vacances scolaires, météo).
+- Mettre en place une évaluation continue (MAE, RMSE, MAPE) et alertes en cas de dérive.
